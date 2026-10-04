@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Santi Santurtun Cordova">
+<meta property="og:description" content="Mathematics MSc student at Oxford: graph theory, web projects and CV.">
+<meta property="og:image" content="https://santi6117.github.io/santi.jpg">
+<title>Santi Santurtun Cordova</title>
+<meta name="description" content="Santi Santurtun Cordova: mathematics MSc student at Oxford, graph theory, web projects and CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one sheet of soft paper on a kraft desk; watercolour washes mark each section; CV as a hand-dotted timeline. */
+:root {
+  --desk: #e9e0d1;
+  --paper: #fcf9f3;
+  --card: #ffffff;
+  --ink: #3b3530;
+  --muted: #6b5f50;
+  --line: rgba(59, 53, 48, .16);
+  --sage: #8fae8b;
+  --blue: #7f9fc2;
+  --ochre: #dba652;
+  --rose: #d98c7a;
+  --photo-bg: #ddd6c7;
+  --shadow: rgba(60, 40, 20, .40);
+  --link-hover: #8a5a2b;
+  --wash-a: .30;
+  --thumb-a: .28;
+  --grain: .05;
+
+  --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --body: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --step-label: .8125rem;
+  --step-small: 1rem;
+  --step-body: 1.125rem;
+  --step-lead: 1.3125rem;
+  --step-h3: 1.5rem;
+  --step-h2: clamp(2.25rem, 5vw, 3rem);
+  --step-h1: clamp(4.25rem, 11vw, 7rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --desk: #171411; --paper: #24201c; --card: #2d2823; --ink: #ede5d8; --muted: #b8ab97;
+    --line: rgba(237, 229, 216, .14); --photo-bg: #3a332c; --shadow: rgba(0, 0, 0, .55);
+    --link-hover: #e8b96a; --wash-a: .26; --thumb-a: .22; --grain: .07; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --desk: #171411; --paper: #24201c; --card: #2d2823; --ink: #ede5d8; --muted: #b8ab97;
+  --line: rgba(237, 229, 216, .14); --photo-bg: #3a332c; --shadow: rgba(0, 0, 0, .55);
+  --link-hover: #e8b96a; --wash-a: .26; --thumb-a: .22; --grain: .07; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+body {
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-body);
+  line-height: 1.7;
+  padding: clamp(16px, 3vw, 40px) 16px 56px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--link-hover); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+
+.sheet {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 40px clamp(20px, 6vw, 80px) 64px;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 24px 50px -28px var(--shadow);
+  overflow: hidden;
+  isolation: isolate;
+}
+.sheet::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .3 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* nav */
+.nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
+.wordmark { font-family: var(--display); font-size: 1.625rem; font-weight: 600; letter-spacing: -.02em; text-decoration: none; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: var(--step-small); font-weight: 500; }
+.nav-links a { text-decoration: none; padding: 10px 0; display: inline-block; }
+
+/* labels */
+.label { font-size: var(--step-label); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* washed headings */
+.washed { position: relative; display: inline-block; }
+.washed::before {
+  content: ""; position: absolute; z-index: 0;
+  left: -14px; top: 34%; width: calc(100% + 28px); height: 56%;
+  background: var(--wash, var(--sage)); opacity: var(--wash-a);
+  border-radius: var(--blob, 60% 40% 55% 45% / 50% 60% 40% 50%);
+  transform: rotate(var(--tilt, -2deg));
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.washed > * { position: relative; z-index: 1; }
+section:hover .washed::before, header:hover .washed::before { transform: rotate(calc(var(--tilt, -2deg) * -1)) scaleX(1.03); }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-h2); line-height: 1.1; letter-spacing: -.02em; }
+
+/* hero */
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6vw, 72px); padding-block: clamp(48px, 7vw, 80px) clamp(64px, 9vw, 104px); }
+.portrait { flex: 0 0 auto; margin: 0 auto; position: relative; width: min(270px, 78vw); }
+.portrait::before {
+  content: ""; position: absolute; left: 18px; top: 18px; width: 100%; height: 100%;
+  background: var(--sage); opacity: .45;
+  border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+}
+.portrait img {
+  position: relative; display: block; width: 100%; aspect-ratio: 9 / 11; max-width: 100%;
+  object-fit: cover; object-position: 50% 32%;
+  border-radius: 6px; background: var(--photo-bg);
+}
+.hero-text { flex: 1 1 420px; min-width: 0; }
+.hero h1 { font-size: var(--step-h1); line-height: 1; letter-spacing: -.035em; }
+.hero .washed { margin-top: 10px; }
+.lead { margin: 22px 0 26px; font-size: var(--step-lead); line-height: 1.6; max-width: 30em; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; font-size: .9375rem; font-weight: 500; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 4px 14px; border-radius: 999px; position: relative; isolation: isolate; }
+.chips li::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--c); opacity: .32; z-index: -1; }
+
+section { padding-bottom: clamp(64px, 9vw, 96px); scroll-margin-top: 24px; }
+.section-head { margin-bottom: 32px; }
+
+/* about */
+.about { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
+.about-text { flex: 1 1 520px; min-width: 0; max-width: 40em; }
+.about-text p { margin: 0 0 18px; }
+.about-text p:last-child { margin-bottom: 0; }
+.now { flex: 0 1 260px; padding: 22px 24px; border-radius: 18px 6px 18px 6px; position: relative; isolation: isolate; font-size: var(--step-small); line-height: 1.6; }
+.now::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--ochre); opacity: .18; z-index: -1; }
+.now .place { font-family: var(--display); font-size: 1.25rem; line-height: 1.4; margin-top: 6px; }
+.now p { margin: 6px 0 0; }
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); gap: 28px; }
+.card {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  box-shadow: 0 8px 20px -14px var(--shadow);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 16px 28px -16px var(--shadow); }
+.thumb { height: 150px; display: flex; align-items: center; justify-content: center; position: relative; isolation: isolate; color: var(--ink); }
+.thumb::before { content: ""; position: absolute; inset: 0; background: var(--c); opacity: var(--thumb-a); z-index: -1; }
+.thumb svg { width: 140px; height: 105px; }
+.thumb .eq { font-family: var(--display); font-style: italic; font-size: 2.5rem; }
+.card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.card h3 { font-size: var(--step-h3); line-height: 1.2; margin: 4px 0 6px; }
+.card p { margin: 0 0 14px; font-size: var(--step-small); line-height: 1.6; }
+.card .go { margin-top: auto; font-size: .9375rem; font-weight: 600; }
+.card .soon { margin-top: auto; font-size: .9375rem; color: var(--muted); }
+
+/* cv */
+.cv-head { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-bottom: 40px; }
+.btn {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+  padding: 10px 22px; border: 1.5px solid var(--ink); border-radius: 999px;
+  font-size: .9375rem; font-weight: 600; text-decoration: none; background: transparent; color: var(--ink);
+  font-family: inherit; cursor: pointer;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.timeline { position: relative; padding-left: 44px; list-style: none; margin: 0; display: grid; gap: 36px; }
+.timeline::before { content: ""; position: absolute; left: 13px; top: 10px; bottom: 10px; width: 2px; background: var(--line); }
+.timeline li { position: relative; min-width: 0; }
+.timeline li::before {
+  content: ""; position: absolute; left: -41px; top: 6px; width: 20px; height: 20px;
+  background: var(--c, var(--paper)); border: 2px solid var(--ink);
+  border-radius: var(--blob, 60% 40% 55% 45% / 50% 60% 40% 50%);
+}
+.timeline .what { font-family: var(--display); font-size: 1.3125rem; font-weight: 500; line-height: 1.35; }
+.timeline .where { margin: 2px 0 0; }
+.timeline .when { font-variant-numeric: tabular-nums; }
+
+/* footer */
+footer { padding-top: 36px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; margin-top: 12px; font-weight: 500; }
+.email { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.email-text { user-select: all; overflow-wrap: anywhere; }
+.copy {
+  font: inherit; font-size: .8125rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 12px; min-height: 32px; cursor: pointer;
+}
+.copy:hover { color: var(--ink); border-color: var(--ink); }
+.fine { font-size: .875rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sheet" id="top">
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="#top">Santi</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#cv">CV</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <figure class="portrait">
+      <img src="santi.jpg" alt="Santi smiling in a graduation cap and gown, wearing a serape stole and medal" width="502" height="669">
+    </figure>
+    <div class="hero-text">
+      <div class="label">Mathematics · University of Oxford</div>
+      <div class="washed" style="--wash: var(--sage)"><h1>Santi</h1></div>
+      <p class="lead">I study pursuit games on graphs, build small interactive tools for the web, and tutor mathematics. This year I'm reading for the MSc in Mathematics and Foundations of Computer Science at Oxford.</p>
+      <ul class="chips" aria-label="Interests">
+        <li style="--c: var(--sage)">Graph theory</li>
+        <li style="--c: var(--blue)">Formal proof</li>
+        <li style="--c: var(--ochre)">Teaching</li>
+        <li style="--c: var(--rose)">Web &amp; SVG</li>
+      </ul>
+    </div>
+  </header>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="section-head washed" style="--wash: var(--blue); --tilt: 1.5deg; --blob: 45% 55% 40% 60% / 60% 40% 55% 45%"><h2 id="about-h">About</h2></div>
+    <div class="about">
+      <div class="about-text">
+        <p>I'm a mathematician who builds things to understand them. I studied mathematics at Oakland University with a minor in AI, and wrote my honors thesis on a pursuit game on graphs: how many cops it takes to catch a robber when each cop can only reach so far.</p>
+        <p>Now I'm reading for an MSc in Mathematics and Foundations of Computer Science at Oxford, working through the architecture of Fermat's Last Theorem, and learning Lean 4 on the side.</p>
+        <p>From 2023 to 2026 I ran a one-on-one tutoring practice in Michigan, from algebra through SAT and ACT prep. Away from the desk: espresso, house and techno, and handmade bracelets.</p>
+      </div>
+      <aside class="now" aria-label="Currently">
+        <div class="label">Currently</div>
+        <div class="place">Wolfson College, Oxford</div>
+        <p>First term of the MFoCS. Previously Rochester Hills, Michigan.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="section-head washed" style="--wash: var(--ochre); --tilt: -1.5deg; --blob: 55% 45% 60% 40% / 40% 60% 45% 55%"><h2 id="projects-h">Selected projects</h2></div>
+    <div class="projects">
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--blue)">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 70 C 30 70 30 22 46 22 S 62 60 76 52 S 96 24 108 20"></path><path d="M14 80 L 108 80" opacity=".5"></path><path d="M14 80 L 14 12" opacity=".5"></path></g><g stroke="currentColor" stroke-width="2"><circle cx="46" cy="22" r="5" fill="var(--card)"></circle><circle cx="76" cy="52" r="5" fill="var(--card)"></circle><circle cx="108" cy="20" r="5" fill="var(--rose)"></circle></g></svg>
+        </div>
+        <div class="card-body">
+          <div class="label">Research · Language models</div>
+          <h3>Do models reason or rationalize?</h3>
+          <p>An investigation into whether language models actually reason their way to answers or construct justifications after the fact.</p>
+          <a class="go" href="https://github.com/santi6117/do-models-reason-or-rationalize" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--sage)">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M60 14 L 32 44 M60 14 L 88 44 M32 44 L 18 76 M32 44 L 46 76 M88 44 L 102 76"></path></g><g stroke="currentColor" stroke-width="2" fill="var(--card)"><circle cx="60" cy="14" r="7"></circle><circle cx="32" cy="44" r="7" fill="currentColor"></circle><circle cx="88" cy="44" r="7" fill="currentColor"></circle><circle cx="18" cy="76" r="7"></circle><circle cx="46" cy="76" r="7"></circle><circle cx="102" cy="76" r="7"></circle></g></svg>
+        </div>
+        <div class="card-body">
+          <div class="label">Thesis · Graph theory</div>
+          <h3>Cops at a distance</h3>
+          <p>Honors thesis: on trees, the distance-restricted cop number equals the distance-r domination number, c<sub>r</sub>(T) = γ<sub>r</sub>(T).</p>
+          <span class="soon">Write-up coming soon</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--rose)">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 20 L 60 45 L 100 18 M60 45 L 40 78 M60 45 L 92 74 M20 20 L 40 78"></path></g><g stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="7" fill="currentColor"></circle><circle cx="60" cy="45" r="7" fill="var(--card)"></circle><circle cx="100" cy="18" r="7" fill="var(--card)"></circle><circle cx="40" cy="78" r="7" fill="var(--card)"></circle><circle cx="92" cy="74" r="7" fill="var(--ochre)"></circle></g></svg>
+        </div>
+        <div class="card-body">
+          <div class="label">Game · SVG / JavaScript</div>
+          <h3>Cops &amp; Robbers</h3>
+          <p>A pursuit game on graphs in the browser, with a robber that flees using breadth-first search.</p>
+          <span class="soon">Demo coming soon</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--ochre)">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="42" cy="46" r="28" fill="var(--card)"></circle><circle cx="84" cy="46" r="28" fill="var(--card)"></circle><path d="M42 46 L 42 28 M42 46 L 54 52 M84 46 L 84 26 M84 46 L 72 56"></path></g></svg>
+        </div>
+        <div class="card-body">
+          <div class="label">Web · JavaScript</div>
+          <h3>Shared focus timer</h3>
+          <p>A Pomodoro-style timer for two: both clocks on one page, so long-distance study sessions happen side by side.</p>
+          <a class="go" href="https://github.com/santi6117/shared-focus-timer" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--blue)"><span class="eq" aria-hidden="true">x² + 1</span></div>
+        <div class="card-body">
+          <div class="label">Web · HTML / CSS</div>
+          <h3>Tutoring site</h3>
+          <p>The site for my one-on-one math and SAT/ACT tutoring practice, built by hand and hosted on GitHub Pages.</p>
+          <a class="go" href="https://github.com/santi6117/tutoring-site" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="--c: var(--sage)">
+          <svg viewBox="0 0 120 90" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 78 L 110 78" opacity=".5"></path><path d="M12 76 C 40 74 52 58 60 45 C 68 32 80 16 108 14"></path></g><g stroke="currentColor" stroke-width="2"><circle cx="26" cy="68" r="4.5" fill="var(--rose)"></circle><circle cx="38" cy="72" r="4.5" fill="var(--rose)"></circle><circle cx="50" cy="60" r="4.5" fill="var(--rose)"></circle><circle cx="70" cy="30" r="4.5" fill="var(--blue)"></circle><circle cx="86" cy="22" r="4.5" fill="var(--blue)"></circle><circle cx="98" cy="28" r="4.5" fill="var(--blue)"></circle></g></svg>
+        </div>
+        <div class="card-body">
+          <div class="label">Machine learning</div>
+          <h3>Logistic regression</h3>
+          <p>A small machine-learning project working through logistic regression, the classic model behind binary classification.</p>
+          <a class="go" href="https://github.com/santi6117/ML-logistic-regression" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="cv" aria-labelledby="cv-h">
+    <div class="cv-head">
+      <div class="washed" style="--wash: var(--rose); --tilt: 1deg; --blob: 50% 50% 45% 55% / 55% 45% 60% 40%"><h2 id="cv-h">Curriculum vitae</h2></div>
+      <a class="btn" href="https://www.linkedin.com/in/santi-santurtun-cordova-0387a6325/" target="_blank" rel="noopener">Full profile on LinkedIn →</a>
+    </div>
+    <ol class="timeline">
+      <li style="--c: var(--sage)">
+        <div class="label"><span class="when">Oct 2026 – Sept 2027</span> · Education</div>
+        <div class="what">MSc Mathematics and Foundations of Computer Science</div>
+        <p class="where">University of Oxford, Wolfson College · expected September 2027</p>
+      </li>
+      <li style="--c: var(--ochre); --blob: 55% 45% 60% 40% / 40% 60% 45% 55%">
+        <div class="label"><span class="when">2023 – 2026</span> · Teaching</div>
+        <div class="what">Private mathematics tutor, self-employed</div>
+        <p class="where">Rochester Hills, Michigan. One-on-one mathematics from algebra upward, plus SAT and ACT preparation.</p>
+      </li>
+      <li style="--c: var(--blue); --blob: 45% 55% 40% 60% / 60% 40% 55% 45%">
+        <div class="label">Undergraduate · Research</div>
+        <div class="what">Honors thesis: distance-restricted cop numbers on trees</div>
+        <p class="where">Proved c<sub>r</sub>(T) = γ<sub>r</sub>(T) for every tree T, and gave a counterexample showing full jurisdiction coverage is necessary but not sufficient on general graphs.</p>
+      </li>
+      <li style="--c: var(--rose); --blob: 50% 50% 45% 55% / 55% 45% 60% 40%">
+        <div class="label">Undergraduate · Education</div>
+        <div class="what">Mathematics, minor in Artificial Intelligence</div>
+        <p class="where">Oakland University</p>
+      </li>
+      <li>
+        <div class="label">Skills</div>
+        <p class="where">Graph theory, combinatorics, Galois theory · TypeScript, JavaScript, HTML/CSS, SVG, Python · LaTeX, TikZ, Lean 4</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <div>
+      <h2>Get in touch</h2>
+      <div class="contact">
+        <span class="email"><a class="email-text" id="email" href="mailto:santisanturtun@gmail.com">santisanturtun@gmail.com</a><button class="copy" id="copy-email" type="button">Copy</button></span>
+        <a href="https://github.com/santi6117" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/santi-santurtun-cordova-0387a6325/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="fine">© 2026 Santi Santurtun Cordova</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var el = document.getElementById('email');
+  function selectText() {
+    try { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+  }
+  function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); }
+  btn.addEventListener('click', function () {
+    var text = el.textContent.trim();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { selectText(); done('Selected'); });
+    } else { selectText(); done('Selected'); }
+  });
+})();
+</script>
+</body>
+</html>
