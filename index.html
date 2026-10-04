@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#e9e0d1">
 <meta property="og:title" content="Santi Santurtun Cordova">
 <meta property="og:description" content="Mathematics MSc student at Oxford: graph theory, web projects and CV.">
 <meta property="og:image" content="https://santi6117.github.io/santi.jpg">
@@ -43,18 +44,8 @@
   --step-h2: clamp(2.25rem, 5vw, 3rem);
   --step-h1: clamp(4.25rem, 11vw, 7rem);
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --desk: #171411; --paper: #24201c; --card: #2d2823; --ink: #ede5d8; --muted: #b8ab97;
-    --line: rgba(237, 229, 216, .14); --photo-bg: #3a332c; --shadow: rgba(0, 0, 0, .55);
-    --link-hover: #e8b96a; --wash-a: .26; --thumb-a: .22; --grain: .07; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --desk: #171411; --paper: #24201c; --card: #2d2823; --ink: #ede5d8; --muted: #b8ab97;
-  --line: rgba(237, 229, 216, .14); --photo-bg: #3a332c; --shadow: rgba(0, 0, 0, .55);
-  --link-hover: #e8b96a; --wash-a: .26; --thumb-a: .22; --grain: .07; color-scheme: dark;
-}
+/* One deliberate look: soft tan paper in every system theme. */
+:root { color-scheme: light; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -66,6 +57,7 @@ body {
   font-family: var(--body);
   font-size: var(--step-body);
   line-height: 1.7;
+  margin: 0;
   padding: clamp(16px, 3vw, 40px) 16px 56px;
   -webkit-font-smoothing: antialiased;
 }
@@ -125,7 +117,7 @@ h2 { font-size: var(--step-h2); line-height: 1.1; letter-spacing: -.02em; }
   border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
 }
 .portrait img {
-  position: relative; display: block; width: 100%; aspect-ratio: 9 / 11; max-width: 100%;
+  position: relative; display: block; width: 100%; height: auto; aspect-ratio: 9 / 11; max-width: 100%;
   object-fit: cover; object-position: 50% 32%;
   border-radius: 6px; background: var(--photo-bg);
 }
@@ -203,6 +195,79 @@ footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
 }
 .copy:hover { color: var(--ink); border-color: var(--ink); }
 .fine { font-size: .875rem; color: var(--muted); }
+
+/* mobile-only pieces, hidden on larger screens */
+.tabbar, .swipe-hint { display: none; }
+
+/* ---------- Phone layout ---------- */
+@media (max-width: 640px) {
+  :root { --step-body: 1.0625rem; --step-lead: 1.125rem; --step-h2: 2.125rem; --step-h3: 1.375rem; }
+
+  /* the sheet becomes the whole screen */
+  body { padding: 0; background: var(--paper); }
+  .sheet { border-radius: 0; box-shadow: none; padding: 20px 20px calc(104px + env(safe-area-inset-bottom, 0px)); }
+  .nav-links { display: none; }
+
+  /* hero: photo beside the name, intro underneath */
+  .hero { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: end; gap: 6px 20px; padding-block: 28px 56px; }
+  .hero-text { display: contents; }
+  .portrait { grid-column: 1; grid-row: 1 / span 2; width: 112px; margin: 0 0 8px; }
+  .portrait::before { left: 9px; top: 9px; }
+  .hero-text > .label { grid-column: 2; grid-row: 1; align-self: end; font-size: .75rem; line-height: 1.4; }
+  .hero-text > .washed { grid-column: 2; grid-row: 2; align-self: start; margin-top: 0; }
+  .hero h1 { font-size: 3.5rem; }
+  .lead { grid-column: 1 / -1; margin: 18px 0 18px; }
+  .chips { grid-column: 1 / -1; font-size: .875rem; gap: 8px; }
+
+  section { padding-bottom: 56px; scroll-margin-top: 12px; }
+  .section-head { margin-bottom: 20px; }
+
+  /* about: "Currently" card leads */
+  .about { flex-direction: column-reverse; gap: 20px; }
+  .about-text, .now { flex: none; width: 100%; }
+  .now { padding: 16px 18px; }
+
+  /* projects: swipeable row of cards */
+  .projects-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .swipe-hint { display: block; }
+  .projects {
+    display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: 20px;
+    margin-inline: -20px; padding: 4px 20px 20px; scrollbar-width: none;
+  }
+  .projects::-webkit-scrollbar { display: none; }
+  .card { flex: 0 0 84%; scroll-snap-align: start; }
+  .card:hover { transform: none; }
+  .thumb { height: 120px; }
+
+  /* cv */
+  .cv-head { margin-bottom: 24px; }
+  .cv-head .btn { margin-left: 0; width: 100%; justify-content: center; }
+  .timeline { padding-left: 34px; gap: 28px; }
+  .timeline::before { left: 9px; }
+  .timeline li::before { left: -33px; width: 18px; height: 18px; }
+  .timeline .what { font-size: 1.1875rem; }
+
+  /* footer: stacked, big tap targets */
+  footer { flex-direction: column; align-items: flex-start; }
+  .contact { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .contact > a { padding-block: 8px; }
+
+  /* floating paper tab bar */
+  .tabbar {
+    display: flex; gap: 4px; position: fixed; z-index: 10;
+    left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: 6px; border-radius: 999px;
+    background: rgba(252, 249, 243, .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border: 1px solid var(--line); box-shadow: 0 12px 28px -14px var(--shadow);
+  }
+  .tabbar a {
+    flex: 1; display: flex; align-items: center; justify-content: center; min-height: 44px;
+    border-radius: 999px; text-decoration: none; font-size: .9375rem; font-weight: 600; color: var(--muted);
+    transition: background-color .25s, color .25s;
+  }
+  .tabbar a.on { color: var(--ink); background: color-mix(in srgb, var(--c) 38%, transparent); }
+}
 </style>
 </head>
 <body>
@@ -250,7 +315,10 @@ footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
   </section>
 
   <section id="projects" aria-labelledby="projects-h">
-    <div class="section-head washed" style="--wash: var(--ochre); --tilt: -1.5deg; --blob: 55% 45% 60% 40% / 40% 60% 45% 55%"><h2 id="projects-h">Selected projects</h2></div>
+    <div class="projects-head section-head">
+      <div class="washed" style="--wash: var(--ochre); --tilt: -1.5deg; --blob: 55% 45% 60% 40% / 40% 60% 45% 55%"><h2 id="projects-h">Selected projects</h2></div>
+      <span class="swipe-hint label" aria-hidden="true">Swipe →</span>
+    </div>
     <div class="projects">
 
       <article class="card">
@@ -359,7 +427,7 @@ footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
     </ol>
   </section>
 
-  <footer>
+  <footer id="contact">
     <div>
       <h2>Get in touch</h2>
       <div class="contact">
@@ -371,6 +439,13 @@ footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
     <div class="fine">© 2026 Santi Santurtun Cordova</div>
   </footer>
 </div>
+
+<nav class="tabbar" aria-label="Sections">
+  <a href="#about" style="--c: var(--blue)">About</a>
+  <a href="#projects" style="--c: var(--ochre)">Projects</a>
+  <a href="#cv" style="--c: var(--rose)">CV</a>
+  <a href="#contact" style="--c: var(--sage)">Contact</a>
+</nav>
 
 <script>
 (function () {
@@ -386,6 +461,23 @@ footer h2 { font-size: clamp(1.875rem, 4vw, 2.25rem); }
       navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { selectText(); done('Selected'); });
     } else { selectText(); done('Selected'); }
   });
+})();
+
+// Phone tab bar: highlight the section currently on screen.
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabbar a'));
+  var targets = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var line = window.innerHeight * 0.4, current = -1;
+    targets.forEach(function (el, i) { if (el && el.getBoundingClientRect().top <= line) current = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = targets.length - 1;
+    tabs.forEach(function (a, i) { a.classList.toggle('on', i === current); });
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>
