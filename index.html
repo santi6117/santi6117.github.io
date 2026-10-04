@@ -109,8 +109,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; 
 h2 { font-size: var(--step-h2); line-height: 1.1; letter-spacing: -.02em; }
 
 /* hero */
-.hero { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6vw, 72px); padding-block: clamp(48px, 7vw, 80px) clamp(64px, 9vw, 104px); }
-.portrait { flex: 0 0 auto; margin: 0 auto; position: relative; width: min(270px, 78vw); }
+.hero { display: grid; grid-template-columns: clamp(170px, 26vw, 270px) minmax(0, 1fr); align-items: center; gap: clamp(28px, 5vw, 72px);padding-block: clamp(48px, 7vw, 80px) clamp(64px, 9vw, 104px); }
+.portrait { margin: 0; position: relative; width: 100%; }
 .portrait::before {
   content: ""; position: absolute; left: 18px; top: 18px; width: 100%; height: 100%;
   background: var(--sage); opacity: .45;
@@ -121,7 +121,7 @@ h2 { font-size: var(--step-h2); line-height: 1.1; letter-spacing: -.02em; }
   object-fit: cover; object-position: 50% 32%;
   border-radius: 6px; background: var(--photo-bg);
 }
-.hero-text { flex: 1 1 420px; min-width: 0; }
+.hero-text { min-width: 0; }
 .hero h1 { font-size: var(--step-h1); line-height: 1; letter-spacing: -.035em; }
 .hero .washed { margin-top: 10px; }
 .lead { margin: 22px 0 26px; font-size: var(--step-lead); line-height: 1.6; max-width: 30em; }
